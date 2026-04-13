@@ -1,3 +1,4 @@
+using Study.LabWork1.Features.Task2;
 using Study.LabWork1.Shared.Abstractions;
 
 namespace Study.LabWork1.Shared.Services;
@@ -15,7 +16,17 @@ public class RunService : IRunService
     /// <summary>
     /// Задание 2
     /// </summary>
-    public void RunTask2() => throw new NotImplementedException();
+    public void RunTask2()
+    {
+        ILogger consoleLogger = LoggerFactory.CreateLogger(LoggerType.Console);
+        ILogger fileLogger = LoggerFactory.CreateLogger(LoggerType.File, "application.log");
+        ILogger serverLogger = LoggerFactory.CreateLogger(LoggerType.Server);
+
+        // Логируем сообщения
+        consoleLogger.Log("Приложение запущено");
+        fileLogger.Log("Пользователь нажал кнопку");
+        serverLogger.Log("Не удалось подключиться к БД");
+    }
 
     /// <summary>
     /// Задание 3
