@@ -1,3 +1,6 @@
+using System.Security.AccessControl;
+using System.Xml.Linq;
+using Study.LabWork1.Features.Task1;
 using Study.LabWork1.Shared.Abstractions;
 
 namespace Study.LabWork1.Shared.Services;
@@ -10,7 +13,16 @@ public class RunService : IRunService
     /// <summary>
     /// Задание 1
     /// </summary>
-    public void RunTask1() => throw new NotImplementedException();
+    public void RunTask1()
+    {
+        Console.WriteLine("Введите числитель: ");
+        int numerator = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введите знаменатель: ");
+        int denomirator = int.Parse(Console.ReadLine());
+
+        var rationalNumber = new RationalNumbers(numerator, denomirator);
+        Console.WriteLine($"Ответ: {rationalNumber}");
+    }
 
     /// <summary>
     /// Задание 2
